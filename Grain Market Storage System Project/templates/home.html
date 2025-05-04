@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Storage Information (In Quintals)</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Warehouse Name</th>
+            <th>Location</th>
+            <th>Capacity (Quintals)</th>
+            <th>Available (Quintals)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for storage in storages %}
+        <tr>
+            <td>{{ storage[0] }}</td>
+            <td>{{ storage[1] }}</td>
+            <td>{{ storage[2] }}</td>
+            <td>{{ storage[3] }}</td>
+            <td>{{ storage[4] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

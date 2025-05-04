@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Book Storage</h2>
+<div class="alert alert-info">
+    Book storage Only day before and on day of submission of grain.
+</div>
+<form method="POST">
+    <input type="text" name="farmer_name" class="form-control" placeholder="Farmer Name" required>
+    <input type="text" name="contact_number" class="form-control" placeholder="Contact Number" required>
+    <input type="text" name="address" class="form-control" placeholder="Address" required>
+    <input type="date" name="date_of_submission" class="form-control" required>
+    <input type="number" name="storage_required" class="form-control" placeholder="Storage Required (Quintals)" required>
+
+    <select name="storage_id" class="form-control" required>
+        <option value="">Select Warehouse</option>
+        {% for storage in storages %}
+        <option value="{{ storage[0] }}">{{ storage[1] }} (Available: {{ storage[4] }} Quintals)</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-success mt-2">Book Storage</button>
+</form>
+{% endblock %}
